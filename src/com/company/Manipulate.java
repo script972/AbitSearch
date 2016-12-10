@@ -12,23 +12,36 @@ public class Manipulate {
 
     ArrayList abiturients=new ArrayList<Abiturient>();
 
-    public  void menu(){
-        fromFile(); readAbit();
-        System.out.println("MENU");
-        System.out.println("0. Выйти ");
-        System.out.println("1. Добавить ");
-        System.out.println("2. Считать");
-        System.out.println("3. Найти");
-        System.out.println("4. Удалить");
-        Scanner scanner=new Scanner(System.in);
-        switch (scanner.nextInt()){
-            case 0: return ;
-            case 1: addAbit(); break;
-            case 2: readAbit(); break;
-            case 3: findAbit(); break;
-            case 4: delAbit(); break;
+    public  void menu() {
+        int i = 0;
+        while (i == 0) {
+            fromFile();
+            readAbit();
+            System.out.println("MENU");
+            System.out.println("0. Выйти ");
+            System.out.println("1. Добавить ");
+            System.out.println("2. Считать");
+            System.out.println("3. Найти");
+            System.out.println("4. Удалить");
+            Scanner scanner = new Scanner(System.in);
+            switch (scanner.nextInt()) {
+                case 0:
+                    return;
+                case 1:
+                    addAbit();
+                    break;
+                case 2:
+                    readAbit();
+                    break;
+                case 3:
+                    findAbit();
+                    break;
+                case 4:
+                    delAbit();
+                    break;
                 default:
                     mistake("Вы выбрали не существующий пункт меню");
+            }
         }
     }
 
