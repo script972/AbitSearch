@@ -47,15 +47,21 @@ public class Manipulate {
 
     private void delAbit() {
         System.out.println("Введіть ID абітуріента якого треба видалити з картатеки");
+        ArrayList abiturientNew=new ArrayList<Abiturient>();
         Scanner scanner=new Scanner(System.in);
         int id=scanner.nextInt();
         Iterator iterator=abiturients.iterator();
+        Abiturient abbb;
         while (iterator.hasNext()) {
-            Abiturient abiturient= (Abiturient) iterator.next();
-            if(abiturient.getId()==id){
-                abiturients.remove(abiturient);
+            abbb= (Abiturient) iterator.next();
+            if(abbb.getId()!=id) {
+                abiturientNew.add(abbb);
             }
+
         }
+        abiturients.clear();
+        abiturients.addAll(abiturientNew);
+       // System.out.println(abiturientNew);
         OutSerialize outSerialize=new OutSerialize();
         try {
             outSerialize.save(abiturients);
